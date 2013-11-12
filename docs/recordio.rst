@@ -12,17 +12,19 @@ Features
 Structure
 =========
 
-recordio ::= header record*
-header   ::= magic `\n` kvpair* `\n`
-magic    ::= `RecordIO ` version
-version  ::= `v` num `.` num
-num      ::= `0` | [1-9][0-9]*    # Number must have decimal value <=2^32-1
-kvpair   ::= key `: ` value `\n`
-key      ::= [A-Z][a-z*](-[A-Z][a-z]*)*
-value    ::= [^\n]*
-record   ::= record-type `:` length rhterm@(`:`|`+`) length*byte `\n`
-record-type ::= [.]?[A-Za-z0-9]+
-length   ::= num
+::
+
+    recordio ::= header record*
+    header   ::= magic `\n` kvpair* `\n`
+    magic    ::= `RecordIO ` version
+    version  ::= `v` num `.` num
+    num      ::= `0` | [1-9][0-9]*    # Number must have decimal value <=2^32-1
+    kvpair   ::= key `: ` value `\n`
+    key      ::= [A-Z][a-z*](-[A-Z][a-z]*)*
+    value    ::= [^\n]*
+    record   ::= record-type `:` length rhterm@(`:`|`+`) length*byte `\n`
+    record-type ::= [.]?[A-Za-z0-9]+
+    length   ::= num
 
 Description
 ===========
@@ -97,11 +99,12 @@ Record-Content-Type::
 Example
 =======
 
-RecordIO v1.0
-Date: 2013-11-11T23:50-06:00
-Description: Example RecordIO file
-Record
+::
 
-Continued:31+These two records have the same
-Continued:9: content.
-Single:40:These two records have the same content.
+    RecordIO v1.0
+    Date: 2013-11-11T23:50-06:00
+    Description: Example RecordIO file Record
+    
+    Continued:31+These two records have the same
+    Continued:9: content.
+    Single:40:These two records have the same content.
